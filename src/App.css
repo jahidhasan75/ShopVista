@@ -1,0 +1,3928 @@
+/* =========================================================
+   SHOPVISTA
+   LIQUID GLASS / FROSTED GLASS UI
+========================================================= */
+
+
+/* =========================================================
+   ROOT VARIABLES
+========================================================= */
+
+:root {
+  --blue: #1769ff;
+  --blue-light: #55b5ff;
+  --blue-dark: #1252d8;
+
+  --text-primary: #10254a;
+  --text-secondary: #58749a;
+
+  --glass-bg: rgba(255, 255, 255, 0.30);
+  --glass-bg-hover: rgba(255, 255, 255, 0.42);
+  --glass-strong: rgba(255, 255, 255, 0.48);
+
+  --glass-border: rgba(255, 255, 255, 0.65);
+  --glass-border-strong: rgba(255, 255, 255, 0.82);
+
+  --shadow:
+    0 15px 45px rgba(40, 100, 175, 0.15);
+
+  --shadow-hover:
+    0 22px 50px rgba(20, 90, 220, 0.24);
+
+  --radius-xl: 26px;
+  --radius-lg: 20px;
+  --radius-md: 15px;
+
+  --transition: 0.25s ease;
+}
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #dcecff;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   MAIN APP
+========================================================= */
+
+.app {
+  min-height: 100vh;
+
+  padding: 22px;
+
+  color: var(--text-primary);
+
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      rgba(255, 255, 255, 0.95),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 95% 8%,
+      rgba(65, 155, 255, 0.34),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(255, 255, 255, 0.65),
+      transparent 38%
+    ),
+    linear-gradient(
+      135deg,
+      #e3f1ff,
+      #b9daf7,
+      #dceeff
+    );
+
+  transition:
+    background 0.4s ease,
+    color 0.3s ease;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.app.dark {
+  --text-primary: #f4f8ff;
+  --text-secondary: #a9c5e7;
+
+  --glass-bg: rgba(10, 31, 61, 0.50);
+  --glass-bg-hover: rgba(18, 48, 87, 0.62);
+  --glass-strong: rgba(15, 45, 82, 0.68);
+
+  --glass-border: rgba(155, 210, 255, 0.22);
+  --glass-border-strong: rgba(155, 210, 255, 0.35);
+
+  --shadow:
+    0 18px 50px rgba(0, 0, 0, 0.28);
+
+  --shadow-hover:
+    0 22px 55px rgba(0, 70, 180, 0.30);
+
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      rgba(25, 100, 210, 0.30),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 95% 10%,
+      rgba(50, 100, 255, 0.22),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(0, 90, 190, 0.12),
+      transparent 40%
+    ),
+    linear-gradient(
+      135deg,
+      #061329,
+      #0b2445,
+      #07182f
+    );
+}
+
+
+/* =========================================================
+   GLASS SYSTEM
+========================================================= */
+
+.glass {
+  background: var(--glass-bg);
+
+  border:
+    1px solid
+    var(--glass-border);
+
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+
+  box-shadow: var(--shadow);
+
+  transition:
+    transform var(--transition),
+    box-shadow var(--transition),
+    background var(--transition),
+    border-color var(--transition);
+}
+
+.glass:hover {
+  border-color:
+    var(--glass-border-strong);
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  min-height: 70px;
+
+  padding: 10px 18px;
+
+  border-radius: var(--radius-xl);
+
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+
+  position: sticky;
+  top: 14px;
+
+  z-index: 1000;
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+  min-width: 160px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  font-size: 20px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.brand-icon {
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  color: white;
+
+  font-size: 26px;
+  line-height: 1;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #65aaff
+    );
+
+  box-shadow:
+    0 0 26px
+    rgba(50, 150, 255, 0.52);
+}
+
+/* =====================================================
+   SHOPVISTA NAVBAR LOGO
+===================================================== */
+
+.brand-icon {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  border-radius: 14px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+.brand-icon img {
+  width: 100% !important;
+  height: 100% !important;
+
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center !important;
+
+  border-radius: inherit !important;
+}
+
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 23px;
+
+  font-size: 13px;
+  font-weight: 650;
+
+  white-space: nowrap;
+}
+
+.nav-links a {
+  position: relative;
+
+  color: var(--text-primary);
+
+  opacity: 0.82;
+
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--blue);
+
+  opacity: 1;
+}
+
+.nav-links a.active::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: -18px;
+
+  height: 2px;
+
+  border-radius: 20px;
+
+  background: var(--blue);
+
+  box-shadow:
+    0 0 10px
+    rgba(25, 105, 255, 0.60);
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box {
+  flex: 1;
+
+  max-width: 390px;
+
+  height: 43px;
+
+  padding: 0 15px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  border-radius: 30px;
+
+  color: var(--text-primary);
+
+  background:
+    rgba(255, 255, 255, 0.18);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.40);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.app.dark .search-box {
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  border-color:
+    rgba(160, 210, 255, 0.20);
+}
+
+.search-box:focus-within {
+  border-color:
+    rgba(30, 120, 255, 0.65);
+
+  background:
+    rgba(255, 255, 255, 0.28);
+
+  box-shadow:
+    0 0 0 3px
+    rgba(30, 120, 255, 0.10);
+}
+
+.search-box input {
+  width: 100%;
+
+  outline: none;
+  border: none;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-size: 13px;
+}
+
+.search-box input::placeholder {
+  color: var(--text-secondary);
+}
+
+.search-box button {
+  flex-shrink: 0;
+
+  padding: 2px;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   NAV ACTIONS
+========================================================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.icon-button,
+.theme-button {
+  width: 40px;
+  height: 40px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-primary);
+
+  background:
+    rgba(255, 255, 255, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.app.dark .icon-button,
+.app.dark .theme-button {
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+.icon-button:hover,
+.theme-button:hover {
+  color: var(--blue);
+
+  background:
+    rgba(255, 255, 255, 0.40);
+
+  transform:
+    translateY(-2px);
+}
+
+.cart-button {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+
+  top: -3px;
+  right: -2px;
+
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ff3f61;
+
+  color: white;
+
+  font-size: 9px;
+  font-weight: 800;
+
+  border: 2px solid white;
+}
+
+
+/* =========================================================
+   STORE LAYOUT
+========================================================= */
+
+.store-container {
+  max-width: 1500px;
+
+  margin: 18px auto 0;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    310px;
+
+  grid-template-rows:
+    auto
+    auto
+    auto;
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+  grid-column: 1;
+  grid-row: 1;
+
+  min-height: 275px;
+
+  padding: 30px;
+
+  border-radius: var(--radius-xl);
+
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  isolation: isolate;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 105, 235, 0.84),
+      rgba(65, 165, 255, 0.48)
+    );
+}
+
+
+/* =========================================================
+   HERO SLIDESHOW
+========================================================= */
+
+.hero-slideshow {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  border-radius: inherit;
+
+  z-index: 1;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+.hero-slideshow img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  opacity: 0;
+
+  /* Smooth fade only — no zoom, scale or blur animation. */
+  transform: none;
+
+  transition:
+    opacity 0.8s ease;
+
+  /* Keep the source image sharp. */
+  filter: none !important;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  /* Prevent browser compositing from introducing visual softness. */
+  image-rendering: auto;
+
+  will-change: opacity;
+}
+
+
+/* ACTIVE HERO */
+
+.hero-slideshow img.active {
+  opacity: 1;
+  transform: none;
+  filter: none !important;
+}
+
+
+/* =========================================================
+   HERO GLASS OVERLAY
+========================================================= */
+
+.hero-slide-overlay {
+  /* Keep the iOS-style glass tint without blurring the actual photo. */
+  background:
+    linear-gradient(
+      90deg,
+      rgba(10, 75, 180, 0.58) 0%,
+      rgba(20, 95, 205, 0.30) 28%,
+      rgba(30, 115, 220, 0.10) 58%,
+      rgba(30, 115, 220, 0.00) 100%
+    );
+
+  /* IMPORTANT: never blur the hero image. */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO DECORATIVE GLASS
+========================================================= */
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 390px;
+  height: 390px;
+
+  right: -145px;
+  top: -180px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.17);
+
+  box-shadow:
+    inset
+    0 0 40px
+    rgba(255, 255, 255, 0.06);
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+  position: relative;
+
+  z-index: 10;
+
+  max-width: 450px;
+
+  color: white;
+}
+
+.hero-mini-label {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  margin-bottom: 8px;
+
+  color:
+    rgba(255, 255, 255, 0.90);
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.sale-label {
+  color: white;
+
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.hero h1 {
+  margin-top: 8px;
+
+  color: white;
+
+  font-size:
+    clamp(52px, 5vw, 74px);
+
+  line-height: 0.95;
+
+  letter-spacing: -3px;
+}
+
+.hero h1 span {
+  font-weight: 850;
+}
+
+.hero p {
+  margin-top: 12px;
+
+  color:
+    rgba(255, 255, 255, 0.95);
+
+  font-size: 18px;
+}
+
+
+/* =========================================================
+   HERO BUTTON
+========================================================= */
+
+.primary-button {
+  margin-top: 21px;
+
+  border: none;
+
+  padding:
+    11px 18px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  border-radius: 14px;
+
+  color: white;
+
+  font-weight: 700;
+
+  background:
+    linear-gradient(
+      135deg,
+      #42a9ff,
+      #1761ed
+    );
+
+  box-shadow:
+    0 10px 25px
+    rgba(0, 70, 200, 0.28);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.primary-button:hover {
+  transform:
+    translateY(-3px)
+    scale(1.02);
+
+  box-shadow:
+    0 14px 32px
+    rgba(0, 70, 220, 0.38);
+}
+
+
+/* =========================================================
+   HERO DOTS
+========================================================= */
+
+.hero-dots {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  padding: 7px 10px;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255, 255, 255, 0.13);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.22);
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+}
+
+.hero-dot {
+  width: 7px;
+  height: 7px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.55);
+
+  transition:
+    width 0.25s ease,
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.hero-dot:hover {
+  transform:
+    scale(1.2);
+}
+
+.hero-dot.active {
+  width: 22px;
+
+  border-radius: 10px;
+
+  background:
+    white;
+
+  box-shadow:
+    0 0 10px
+    rgba(255, 255, 255, 0.65);
+}
+
+
+/* =========================================================
+   CATEGORIES
+========================================================= */
+
+.categories-section {
+  grid-column: 2;
+  grid-row: 1;
+
+  padding: 18px;
+
+  border-radius: var(--radius-xl);
+}
+
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 13px;
+
+  padding: 0 5px;
+}
+
+.section-heading h2 {
+  color: var(--text-primary);
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.section-heading button {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  border: none;
+
+  background: transparent;
+
+  color: var(--text-primary);
+
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.section-heading button:hover {
+  color: var(--blue);
+}
+
+
+/* =========================================================
+   CATEGORY GRID
+========================================================= */
+
+.categories-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 10px;
+}
+
+.category-card {
+  min-height: 82px;
+
+  padding: 10px;
+
+  border-radius: 15px;
+
+  border:
+    1px solid
+    transparent;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  color: var(--text-primary);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.category-card:hover {
+  transform:
+    translateY(-5px);
+
+  color: var(--blue);
+
+  box-shadow:
+    var(--shadow-hover);
+}
+
+.category-card.active {
+  color: var(--blue);
+
+  border-color:
+    rgba(23, 105, 255, 0.42);
+
+  background:
+    rgba(255, 255, 255, 0.40);
+
+  box-shadow:
+    0 10px 28px
+    rgba(30, 100, 220, 0.16);
+}
+
+.app.dark .category-card.active {
+  background:
+    rgba(40, 120, 220, 0.16);
+
+  border-color:
+    rgba(80, 160, 255, 0.35);
+}
+
+.category-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.category-card span {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   PRODUCTS SECTION
+========================================================= */
+
+.products-section {
+  grid-column: 1;
+  grid-row: 2;
+
+  min-width: 0;
+}
+
+.products-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, minmax(0, 1fr));
+
+  gap: 12px;
+}
+
+.product-card-link {
+  display: block;
+
+  color: inherit;
+
+  text-decoration: none;
+}
+
+.product-card-link:hover {
+  color: inherit;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius:
+    var(--radius-lg);
+
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.product-card:hover {
+  transform:
+    translateY(-7px);
+
+  box-shadow:
+    var(--shadow-hover);
+}
+
+
+/* =========================================================
+   WISHLIST
+========================================================= */
+
+.wishlist {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  z-index: 10;
+
+  width: 31px;
+  height: 31px;
+
+  padding: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 50%;
+
+  color: var(--text-primary);
+
+  background:
+    rgba(255, 255, 255, 0.48);
+
+  backdrop-filter:
+    blur(10px);
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.wishlist:hover {
+  color: #ff4263;
+
+  transform:
+    scale(1.10);
+
+  background:
+    rgba(255, 255, 255, 0.70);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.product-image {
+  height: 155px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.64),
+      rgba(255, 255, 255, 0.12)
+    );
+}
+
+.app.dark .product-image {
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(60, 130, 220, 0.20),
+      rgba(10, 30, 60, 0.08)
+    );
+}
+
+.product-image-glow {
+  position: absolute;
+
+  width: 125px;
+  height: 125px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(70, 160, 255, 0.22);
+
+  filter:
+    blur(24px);
+}
+
+.product-real-image {
+  position: relative;
+
+  z-index: 2;
+
+  width: 78%;
+  height: 78%;
+
+  object-fit: contain;
+
+  display: block;
+
+  filter:
+    drop-shadow(
+      0 14px 17px
+      rgba(30, 80, 160, 0.18)
+    );
+
+  transition:
+    transform 0.3s ease,
+    filter 0.3s ease;
+}
+
+.product-card:hover
+.product-real-image {
+  transform:
+    scale(1.08)
+    translateY(-4px);
+
+  filter:
+    drop-shadow(
+      0 18px 23px
+      rgba(30, 80, 160, 0.25)
+    );
+}
+
+
+/* =========================================================
+   PRODUCT INFO
+========================================================= */
+
+.product-info {
+  padding: 12px;
+}
+
+.product-info h3 {
+  color: var(--text-primary);
+
+  font-size: 12px;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+.product-info > span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: var(--text-secondary);
+
+  font-size: 9px;
+}
+
+.product-bottom {
+  margin-top: 12px;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.product-bottom strong {
+  color: var(--text-primary);
+
+  font-size: 12px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  margin-top: 5px;
+
+  color: #f3ae20;
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   ADD CART
+========================================================= */
+
+.add-cart {
+  width: 32px;
+  height: 32px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2c86ff,
+      #1557df
+    );
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.add-cart:hover {
+  transform:
+    scale(1.10)
+    rotate(-3deg);
+
+  box-shadow:
+    0 7px 18px
+    rgba(20, 90, 240, 0.35);
+}
+
+
+/* =========================================================
+   CART
+========================================================= */
+
+.cart-panel {
+  grid-column: 2;
+  grid-row: 2;
+
+  padding: 18px;
+
+  border-radius:
+    var(--radius-xl);
+
+  align-self: start;
+}
+
+.cart-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 13px;
+}
+
+.cart-heading h2 {
+  color: var(--text-primary);
+
+  font-size: 18px;
+}
+
+.cart-heading span {
+  color: var(--text-secondary);
+
+  font-size: 11px;
+}
+
+.cart-item {
+  display: grid;
+
+  grid-template-columns:
+    46px
+    1fr
+    auto;
+
+  gap: 10px;
+
+  align-items: center;
+
+  padding: 10px 0;
+
+  border-bottom:
+    1px solid
+    rgba(255, 255, 255, 0.18);
+}
+
+.mini-product {
+  width: 45px;
+  height: 45px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  color: var(--blue);
+
+  background:
+    rgba(255, 255, 255, 0.38);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.30);
+}
+
+.cart-item div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+
+  min-width: 0;
+}
+
+.cart-item strong {
+  color: var(--text-primary);
+
+  font-size: 10px;
+}
+
+.cart-item small {
+  color: var(--text-secondary);
+
+  font-size: 8px;
+}
+
+.cart-total {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding:
+    14px 0 11px;
+
+  color: var(--text-primary);
+
+  font-size: 13px;
+}
+
+.checkout-button {
+  width: 100%;
+
+  padding: 11px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  color: white;
+
+  font-weight: 750;
+
+  background:
+    linear-gradient(
+      135deg,
+      #317fff,
+      #174ede
+    );
+
+  box-shadow:
+    0 8px 20px
+    rgba(20, 80, 220, 0.25);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.checkout-button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 25px
+    rgba(20, 80, 220, 0.35);
+}
+
+
+/* =========================================================
+   SPECIAL OFFER
+========================================================= */
+
+.special-offer {
+  grid-column: 2;
+  grid-row: 3;
+
+  min-height: 175px;
+
+  padding: 20px;
+
+  border-radius:
+    var(--radius-xl);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+.special-offer::before {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  right: -45px;
+  bottom: -75px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(80, 150, 255, 0.15);
+
+  filter:
+    blur(3px);
+}
+
+.offer-content {
+  position: relative;
+
+  z-index: 2;
+}
+
+.offer-label {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+
+  color: var(--text-primary);
+
+  font-size: 14px;
+  font-weight: 750;
+}
+
+.special-offer h2 {
+  margin-top: 7px;
+
+  color: var(--text-primary);
+
+  font-size: 16px;
+}
+
+.special-offer p {
+  margin-top: 4px;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+}
+
+.special-offer .primary-button {
+  margin-top: 13px;
+
+  padding:
+    8px 13px;
+
+  font-size: 10px;
+}
+
+.offer-shopping-bag {
+  position: relative;
+
+  z-index: 2;
+
+  font-size: 65px;
+
+  transform:
+    rotate(-8deg);
+
+  filter:
+    drop-shadow(
+      0 12px 15px
+      rgba(40, 70, 150, 0.18)
+    );
+}
+
+
+/* =========================================================
+   BENEFITS
+========================================================= */
+
+.store-benefits {
+  max-width: 1500px;
+
+  margin: 18px auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 14px;
+}
+
+.benefit {
+  padding:
+    16px 18px;
+
+  border-radius: 18px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  color: var(--blue);
+}
+
+.benefit div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.benefit strong {
+  color: var(--text-primary);
+
+  font-size: 12px;
+}
+
+.benefit span {
+  color: var(--text-secondary);
+
+  font-size: 9px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.store-footer {
+  max-width: 1500px;
+
+  margin:
+    25px auto 5px;
+
+  padding:
+    18px 5px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--text-secondary);
+
+  font-size: 10px;
+}
+
+.store-footer div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.store-footer strong {
+  color: var(--text-primary);
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   PRODUCT DETAILS PAGE
+========================================================= */
+
+.product-details-page {
+  min-height: 100vh;
+
+  padding: 30px;
+
+  color: var(--text-primary);
+
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      rgba(255, 255, 255, 0.92),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 95% 10%,
+      rgba(60, 150, 255, 0.35),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #dcecff,
+      #b6d8f7,
+      #d8ecff
+    );
+}
+
+.details-back-button {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  margin-bottom: 20px;
+
+  padding:
+    10px 15px;
+
+  border-radius: 12px;
+
+  color: var(--text-primary);
+
+  background:
+    rgba(255, 255, 255, 0.30);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.55);
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.details-back-button:hover {
+  color: var(--blue);
+
+  transform:
+    translateX(-3px);
+}
+
+
+/* =========================================================
+   DETAILS CARD
+========================================================= */
+
+.product-details {
+  max-width: 1200px;
+
+  min-height: 520px;
+
+  margin: 0 auto;
+
+  padding: 35px;
+
+  border-radius: 28px;
+
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr;
+
+  gap: 45px;
+
+  align-items: center;
+}
+
+
+/* =========================================================
+   DETAILS IMAGE
+========================================================= */
+
+.details-image-section {
+  min-height: 420px;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 24px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.65),
+      rgba(255, 255, 255, 0.18)
+    );
+
+  overflow: hidden;
+}
+
+.details-image-glow {
+  position: absolute;
+
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(60, 150, 255, 0.20);
+
+  filter:
+    blur(45px);
+}
+
+.details-product-image {
+  position: relative;
+
+  z-index: 2;
+
+  width: 78%;
+  height: 78%;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 25px 30px
+      rgba(30, 80, 160, 0.20)
+    );
+
+  transition:
+    transform 0.3s ease;
+}
+
+.details-product-image:hover {
+  transform:
+    scale(1.04);
+}
+
+
+/* =========================================================
+   DETAILS INFO
+========================================================= */
+
+.details-info {
+  padding: 15px;
+}
+
+.details-category {
+  color: var(--blue);
+
+  font-size: 13px;
+
+  font-weight: 750;
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+.details-info h1 {
+  margin-top: 10px;
+
+  color: var(--text-primary);
+
+  font-size: 42px;
+
+  line-height: 1.1;
+
+  letter-spacing: -1.5px;
+}
+
+.details-rating {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 15px;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+
+  color: #f3ae20;
+
+  font-weight: 750;
+}
+
+.rating-text {
+  color: var(--text-secondary);
+
+  font-size: 12px;
+}
+
+.details-price {
+  margin-top: 22px;
+
+  color: var(--blue);
+
+  font-size: 30px;
+
+  font-weight: 850;
+}
+
+.details-description {
+  margin-top: 16px;
+
+  max-width: 500px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   QUANTITY
+========================================================= */
+
+.quantity-section {
+  margin-top: 25px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 20px;
+
+  color: var(--text-primary);
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding: 5px;
+
+  border-radius: 12px;
+
+  background:
+    rgba(255, 255, 255, 0.35);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.50);
+}
+
+.quantity-control button {
+  width: 32px;
+  height: 32px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-primary);
+
+  background:
+    rgba(255, 255, 255, 0.45);
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.quantity-control button:hover {
+  color: var(--blue);
+
+  background:
+    rgba(255, 255, 255, 0.70);
+}
+
+.quantity-control strong {
+  min-width: 20px;
+
+  text-align: center;
+
+  color: var(--text-primary);
+}
+
+
+/* =========================================================
+   DETAILS ACTIONS
+========================================================= */
+
+.details-actions {
+  margin-top: 25px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.details-add-cart,
+.details-buy-now,
+.details-wishlist {
+  min-height: 45px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  font-weight: 750;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.details-add-cart {
+  padding:
+    0 20px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2d86ff,
+      #1557df
+    );
+
+  box-shadow:
+    0 8px 20px
+    rgba(20, 80, 220, 0.22);
+}
+
+.details-buy-now {
+  padding:
+    0 20px;
+
+  color: var(--blue);
+
+  background:
+    rgba(255, 255, 255, 0.48);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.60);
+}
+
+.details-wishlist {
+  width: 45px;
+
+  color: var(--text-primary);
+
+  background:
+    rgba(255, 255, 255, 0.40);
+}
+
+.details-wishlist.liked {
+  color: #ff4263;
+}
+
+.details-add-cart:hover,
+.details-buy-now:hover,
+.details-wishlist:hover {
+  transform:
+    translateY(-2px);
+}
+
+
+/* =========================================================
+   DETAILS FEATURES
+========================================================= */
+
+.details-features {
+  margin-top: 28px;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 12px;
+}
+
+.details-feature {
+  padding: 13px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  border-radius: 14px;
+
+  color: var(--blue);
+
+  background:
+    rgba(255, 255, 255, 0.25);
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.35);
+}
+
+.details-feature div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+.details-feature strong {
+  color: var(--text-primary);
+
+  font-size: 10px;
+}
+
+.details-feature span {
+  color: var(--text-secondary);
+
+  font-size: 8px;
+}
+
+
+/* =========================================================
+   PRODUCT NOT FOUND
+========================================================= */
+
+.product-not-found {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dcecff,
+      #b6d8f7
+    );
+}
+
+.product-not-found-card {
+  padding: 40px;
+
+  border-radius: 24px;
+
+  text-align: center;
+}
+
+.product-not-found-card h2 {
+  margin-bottom: 20px;
+
+  color: var(--text-primary);
+}
+
+.back-store-button {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding:
+    10px 16px;
+
+  border-radius: 12px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2d86ff,
+      #1557df
+    );
+
+  text-decoration: none;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1250px) {
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .products-grid {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media (max-width: 1000px) {
+
+  .app {
+    padding: 15px;
+  }
+
+  .navbar {
+    flex-wrap: wrap;
+
+    gap: 12px;
+  }
+
+  .nav-links {
+    order: 3;
+
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .search-box {
+    max-width: none;
+  }
+
+  .store-container {
+    grid-template-columns: 1fr;
+  }
+
+  .hero,
+  .categories-section,
+  .products-section,
+  .cart-panel,
+  .special-offer {
+    grid-column: 1;
+
+    grid-row: auto;
+  }
+
+  .hero {
+    order: 1;
+  }
+
+  .categories-section {
+    order: 2;
+  }
+
+  .products-section {
+    order: 3;
+  }
+
+  .cart-panel {
+    order: 4;
+  }
+
+  .special-offer {
+    order: 5;
+  }
+
+  .products-grid {
+    grid-template-columns:
+      repeat(4, 1fr);
+  }
+
+  .store-benefits {
+    grid-template-columns:
+      1fr;
+  }
+
+  .product-details {
+    grid-template-columns:
+      1fr;
+
+    gap: 25px;
+  }
+
+  .details-image-section {
+    min-height: 350px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 720px) {
+
+  .app {
+    padding: 10px;
+  }
+
+  .navbar {
+    padding: 10px;
+
+    gap: 10px;
+  }
+
+  .brand {
+    min-width: auto;
+  }
+
+  .brand span {
+    font-size: 17px;
+  }
+
+  .nav-links {
+    justify-content: flex-start;
+
+    overflow-x: auto;
+
+    padding-bottom: 3px;
+
+    font-size: 11px;
+  }
+
+  .nav-links a.active::after {
+    bottom: -8px;
+  }
+
+  .nav-actions {
+    margin-left: auto;
+  }
+
+  .search-box {
+    order: 2;
+
+    flex-basis: 100%;
+
+    max-width: none;
+  }
+
+  .hero {
+    min-height: 320px;
+
+    padding: 22px;
+  }
+
+  .hero-content {
+    max-width: 300px;
+  }
+
+  .hero-slide-overlay {
+    /* Mobile keeps the blue glass tint but never blurs the image. */
+    background:
+      linear-gradient(
+        90deg,
+        rgba(10, 75, 180, 0.62),
+        rgba(20, 100, 220, 0.28),
+        rgba(20, 110, 230, 0.04)
+      );
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .products-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .categories-grid {
+    grid-template-columns:
+      repeat(3, 1fr);
+  }
+
+  .details-info h1 {
+    font-size: 32px;
+  }
+
+  .details-actions {
+    flex-wrap: wrap;
+  }
+
+  .store-footer {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONE
+========================================================= */
+
+@media (max-width: 450px) {
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-actions {
+    gap: 3px;
+  }
+
+  .icon-button,
+  .theme-button {
+    width: 35px;
+    height: 35px;
+  }
+
+  .hero {
+    min-height: 290px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+
+    letter-spacing:
+      -2px;
+  }
+
+  .hero-mini-label {
+    font-size: 10px;
+  }
+
+  .sale-label {
+    font-size: 17px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .hero-slideshow img {
+    object-position:
+      center;
+  }
+
+  .products-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 8px;
+  }
+
+  .product-image {
+    height: 120px;
+  }
+
+  .product-info {
+    padding: 9px;
+  }
+
+  .product-info h3 {
+    font-size: 11px;
+  }
+
+  .details-features {
+    grid-template-columns:
+      1fr;
+  }
+
+  .details-image-section {
+    min-height: 280px;
+  }
+
+  .details-actions {
+    width: 100%;
+  }
+
+  .details-add-cart,
+  .details-buy-now {
+    flex: 1;
+
+    padding:
+      0 12px;
+  }
+
+}
+
+
+/* =========================================================
+   CART QUANTITY CONTROLS
+========================================================= */
+
+.cart-quantity-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.cart-quantity-control button {
+  width: 22px;
+  height: 22px;
+
+  border: none;
+  border-radius: 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.35);
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.cart-quantity-control button:hover {
+  background: rgba(255, 255, 255, 0.60);
+  transform: scale(1.08);
+}
+
+.cart-quantity-control strong {
+  min-width: 15px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.cart-remove-button {
+  margin-left: 2px;
+
+  color: #ff4263 !important;
+  background: rgba(255, 70, 100, 0.12) !important;
+}
+
+.cart-remove-button:hover {
+  background: rgba(255, 70, 100, 0.22) !important;
+}
+
+
+/* =========================================================
+   EMPTY CART
+========================================================= */
+
+.cart-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  min-height: 120px;
+
+  opacity: 0.85;
+}
+
+.cart-empty svg {
+  color: var(--blue);
+}
+/* =========================================================
+   HERO FIX
+   Single image + 3.5s slideshow + smooth glass animation
+========================================================= */
+
+.hero {
+  position: relative !important;
+
+  display: grid !important;
+  grid-template-columns: 36% 64% !important;
+
+  width: 100% !important;
+  min-height: 320px !important;
+
+  overflow: hidden !important;
+
+  border-radius: 28px !important;
+
+  padding: 0 !important;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   LEFT HERO CONTENT
+========================================================= */
+
+.hero-content {
+  position: relative !important;
+
+  z-index: 10 !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+
+  padding: 38px 30px 38px 34px !important;
+
+  min-width: 0;
+
+  color: white !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(36, 126, 246, 0.98),
+      rgba(57, 143, 245, 0.88)
+    ) !important;
+}
+
+
+/* =========================================================
+   HERO TEXT
+========================================================= */
+
+.hero-mini-label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+
+  margin-bottom: 14px !important;
+
+  color: #ffffff !important;
+
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+.sale-label {
+  display: block !important;
+
+  margin-bottom: 4px !important;
+
+  color: #ffffff !important;
+
+  font-size: 22px !important;
+  font-weight: 700 !important;
+}
+
+.hero-content h1 {
+  margin: 0 !important;
+
+  color: #ffffff !important;
+
+  font-size: clamp(
+    52px,
+    5vw,
+    78px
+  ) !important;
+
+  line-height: 0.98 !important;
+
+  font-weight: 800 !important;
+
+  letter-spacing: -3px !important;
+}
+
+.hero-content h1 span {
+  color: #ffffff !important;
+}
+
+.hero-content p {
+  margin: 14px 0 24px !important;
+
+  color: rgba(
+    255,
+    255,
+    255,
+    0.95
+  ) !important;
+
+  font-size: 18px !important;
+}
+
+
+/* =========================================================
+   SHOP NOW BUTTON
+========================================================= */
+
+.hero-content .primary-button {
+  width: fit-content !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  gap: 10px !important;
+
+  padding: 14px 22px !important;
+
+  border: none !important;
+  border-radius: 15px !important;
+
+  color: white !important;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2991ff,
+      #1765e8
+    ) !important;
+
+  box-shadow:
+    0 10px 25px
+    rgba(
+      20,
+      90,
+      220,
+      0.28
+    ) !important;
+
+  cursor: pointer !important;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease !important;
+}
+
+.hero-content .primary-button:hover {
+  transform: translateY(-2px) !important;
+
+  box-shadow:
+    0 14px 30px
+    rgba(
+      20,
+      90,
+      220,
+      0.36
+    ) !important;
+}
+
+
+/* =========================================================
+   RIGHT HERO IMAGE AREA
+========================================================= */
+
+.hero-products {
+  position: relative !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  min-height: 320px !important;
+
+  overflow: hidden !important;
+
+  background: #287be8 !important;
+}
+
+
+/* =========================================================
+   IMPORTANT:
+   ALL SLIDES ARE ABSOLUTE
+   ONLY ACTIVE ONE IS VISIBLE
+========================================================= */
+
+.hero-slide {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  display: block !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  object-fit: cover !important;
+
+  object-position: center !important;
+
+  opacity: 0 !important;
+
+  visibility: hidden !important;
+
+  transform:
+    scale(1.015)
+    translateX(12px) !important;
+
+  filter: none !important;
+
+  z-index: 1 !important;
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s ease,
+    visibility 0s linear 0.9s !important;
+}
+
+
+/* =========================================================
+   ACTIVE SLIDE
+========================================================= */
+
+.hero-slide.active {
+  opacity: 1 !important;
+
+  visibility: visible !important;
+
+  transform:
+    scale(1)
+    translateX(0) !important;
+
+  filter: none !important;
+
+  z-index: 2 !important;
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s ease,
+    visibility 0s linear 0s !important;
+}
+
+
+/* =========================================================
+   REMOVE ANY BLUR FROM HERO
+========================================================= */
+
+.hero-products img,
+.hero-slide {
+  filter: none !important;
+
+  -webkit-filter: none !important;
+
+  backdrop-filter: none !important;
+
+  -webkit-backdrop-filter: none !important;
+}
+
+
+/* =========================================================
+   GLASS OVERLAY
+   VERY LIGHT — DOES NOT BLUR IMAGE
+========================================================= */
+
+.hero-glass-overlay {
+  position: absolute !important;
+
+  inset: 0 !important;
+
+  z-index: 4 !important;
+
+  pointer-events: none !important;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(
+        32,
+        104,
+        220,
+        0.08
+      ),
+      rgba(
+        255,
+        255,
+        255,
+        0.02
+      )
+    ) !important;
+
+  backdrop-filter: none !important;
+
+  -webkit-backdrop-filter: none !important;
+}
+
+
+/* =========================================================
+   HERO SLIDER DOTS
+========================================================= */
+
+.hero-dots {
+  position: absolute !important;
+
+  left: 50% !important;
+  bottom: 14px !important;
+
+  transform: translateX(-50%) !important;
+
+  z-index: 10 !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 6px !important;
+
+  padding: 7px 10px !important;
+
+  border-radius: 30px !important;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.24
+    ) !important;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.42
+    ) !important;
+
+  box-shadow:
+    0 5px 18px
+    rgba(
+      0,
+      0,
+      0,
+      0.12
+    ) !important;
+
+  backdrop-filter:
+    blur(12px) !important;
+
+  -webkit-backdrop-filter:
+    blur(12px) !important;
+}
+
+
+.hero-dot {
+  width: 8px !important;
+  height: 8px !important;
+
+  padding: 0 !important;
+
+  border: none !important;
+
+  border-radius: 50% !important;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.65
+    ) !important;
+
+  cursor: pointer !important;
+
+  transition:
+    width 0.25s ease,
+    background 0.25s ease !important;
+}
+
+
+.hero-dot.active {
+  width: 24px !important;
+
+  border-radius: 20px !important;
+
+  background: #ffffff !important;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    grid-template-columns: 1fr !important;
+
+    min-height: auto !important;
+  }
+
+  .hero-content {
+    min-height: 280px !important;
+
+    padding: 30px !important;
+  }
+
+  .hero-products {
+    min-height: 280px !important;
+  }
+
+  .hero-content h1 {
+    font-size: 58px !important;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .hero-content {
+    min-height: 240px !important;
+
+    padding: 24px !important;
+  }
+
+  .hero-products {
+    min-height: 220px !important;
+  }
+
+  .hero-content h1 {
+    font-size: 48px !important;
+  }
+
+  .sale-label {
+    font-size: 19px !important;
+  }
+
+  .hero-content p {
+    font-size: 16px !important;
+  }
+
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.about-section,
+.contact-section {
+  margin: 30px 0;
+  padding: 40px;
+}
+
+.about-content {
+  max-width: 850px;
+  margin: 20px auto 0;
+  line-height: 1.8;
+  text-align: center;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.contact-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-item span {
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   SHOPVISTA FINAL FIX PACK
+   1. Reference-style full hero banner
+   2. Review stars/text area always clickable
+   3. Glass pseudo-elements cannot block form controls
+   4. Stable responsive behavior
+========================================================= */
+
+/* ---------- HERO: FULL IMAGE BANNER ---------- */
+
+.hero.hero-reference-banner {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  height: clamp(300px, 38vw, 560px) !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-radius: 28px !important;
+  isolation: isolate !important;
+  background: transparent !important;
+}
+
+.hero-reference-image-wrap {
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 300px !important;
+  overflow: hidden !important;
+  border-radius: inherit !important;
+  isolation: isolate !important;
+}
+
+.hero-reference-image {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: opacity 0.8s ease !important;
+  will-change: opacity !important;
+  z-index: 1 !important;
+}
+
+.hero-reference-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  background: linear-gradient(
+    90deg,
+    rgba(15, 72, 160, 0.08),
+    rgba(15, 72, 160, 0.00) 55%,
+    rgba(15, 72, 160, 0.04)
+  ) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.hero.hero-reference-banner::before,
+.hero.hero-reference-banner::after {
+  pointer-events: none !important;
+}
+
+.hero.hero-reference-banner .hero-dots {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 16px !important;
+  transform: translateX(-50%) !important;
+  z-index: 20 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 7px 10px !important;
+  border-radius: 999px !important;
+  background: rgba(20, 45, 80, 0.28) !important;
+  border: 1px solid rgba(255,255,255,.38) !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,.12) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.hero.hero-reference-banner .hero-dot {
+  width: 8px !important;
+  height: 8px !important;
+  min-width: 8px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,.65) !important;
+  cursor: pointer !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+.hero.hero-reference-banner .hero-dot.active {
+  width: 24px !important;
+  min-width: 24px !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+}
+
+/* ---------- REVIEWS: FORCE INTERACTION ---------- */
+
+.product-reviews-section {
+  position: relative !important;
+  z-index: 100 !important;
+  isolation: isolate !important;
+  pointer-events: auto !important;
+}
+
+.product-reviews-section::before,
+.product-reviews-section::after {
+  pointer-events: none !important;
+}
+
+.product-reviews-section,
+.product-reviews-section * {
+  pointer-events: auto;
+}
+
+.product-reviews-section form {
+  position: relative !important;
+  z-index: 200 !important;
+  pointer-events: auto !important;
+}
+
+.product-reviews-section button {
+  position: relative !important;
+  z-index: 300 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.product-reviews-section button[type="button"] {
+  touch-action: manipulation !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.product-review-textarea,
+.product-reviews-section textarea {
+  position: relative !important;
+  z-index: 300 !important;
+  display: block !important;
+  width: 100% !important;
+  min-height: 130px !important;
+  box-sizing: border-box !important;
+  pointer-events: auto !important;
+  cursor: text !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -webkit-touch-callout: default !important;
+  resize: vertical !important;
+  opacity: 1 !important;
+}
+
+.product-reviews-section input,
+.product-reviews-section textarea,
+.product-reviews-section select {
+  pointer-events: auto !important;
+}
+
+.product-reviews-section .primary-button:disabled {
+  pointer-events: none !important;
+}
+
+/* ---------- GENERAL FORM SAFETY ---------- */
+
+input,
+textarea,
+select,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+textarea {
+  font-family: inherit;
+}
+
+/* ---------- RESPONSIVE HERO ---------- */
+
+@media (max-width: 1000px) {
+  .hero.hero-reference-banner {
+    height: clamp(260px, 50vw, 450px) !important;
+  }
+
+  .hero-reference-image-wrap {
+    min-height: 260px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero.hero-reference-banner {
+    height: 230px !important;
+    border-radius: 18px !important;
+  }
+
+  .hero-reference-image-wrap {
+    min-height: 230px !important;
+  }
+
+  .hero.hero-reference-banner .hero-dots {
+    bottom: 10px !important;
+  }
+}
+
+
+/* =========================================================
+   SHOPVISTA HERO BANNER — OLD WIDE/SHORT BANNER SIZE
+   Keeps the 3-image slideshow, but restores the previous
+   wide + short banner proportion.
+   ========================================================= */
+
+.hero.hero-full-image {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: 3.03 / 1 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  border-radius: 40px !important;
+  box-sizing: border-box !important;
+  isolation: isolate !important;
+}
+
+.hero.hero-full-image .hero-image-layer {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+}
+
+.hero.hero-full-image .hero-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+  transform: none !important;
+  filter: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.hero.hero-full-image .hero-slide.active {
+  opacity: 1 !important;
+}
+
+.hero.hero-full-image .hero-full-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+  background: linear-gradient(
+    90deg,
+    rgba(16, 105, 230, 0.70) 0%,
+    rgba(23, 105, 255, 0.58) 32%,
+    rgba(23, 105, 255, 0.18) 57%,
+    rgba(0, 0, 0, 0.01) 76%,
+    rgba(0, 0, 0, 0) 100%
+  ) !important;
+}
+
+.hero.hero-full-image .hero-full-content {
+  position: absolute !important;
+  left: clamp(34px, 5.5vw, 88px) !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 5 !important;
+  width: min(43%, 560px) !important;
+  max-width: 560px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  color: #fff !important;
+  box-sizing: border-box !important;
+}
+
+.hero.hero-full-image .hero-mini-label {
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  margin-bottom: 12px !important;
+  color: #fff !important;
+  font-size: clamp(14px, 1.35vw, 21px) !important;
+  font-weight: 600 !important;
+}
+
+.hero.hero-full-image .sale-label {
+  display: block !important;
+  margin: 0 0 4px !important;
+  color: #fff !important;
+  font-size: clamp(23px, 2.35vw, 38px) !important;
+  line-height: 1.08 !important;
+  font-weight: 700 !important;
+}
+
+.hero.hero-full-image h1 {
+  margin: 0 !important;
+  color: #fff !important;
+  font-size: clamp(48px, 5.8vw, 92px) !important;
+  line-height: 0.98 !important;
+  font-weight: 900 !important;
+  letter-spacing: -3px !important;
+}
+
+.hero.hero-full-image h1 span {
+  color: inherit !important;
+}
+
+.hero.hero-full-image .hero-full-content p {
+  margin: 12px 0 0 !important;
+  color: #fff !important;
+  font-size: clamp(16px, 1.55vw, 25px) !important;
+  line-height: 1.2 !important;
+}
+
+.hero.hero-full-image .hero-shop-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  min-height: 58px !important;
+  margin-top: clamp(24px, 3vw, 48px) !important;
+  padding: 0 34px !important;
+  border: 0 !important;
+  border-radius: 22px !important;
+  color: #fff !important;
+  background: rgba(25, 112, 239, 0.95) !important;
+  box-shadow: 0 12px 30px rgba(0, 52, 150, 0.22) !important;
+  font-size: clamp(16px, 1.35vw, 22px) !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+}
+
+.hero.hero-full-image .hero-shop-button:hover {
+  transform: translateY(-2px) !important;
+}
+
+.hero.hero-full-image .hero-full-dots {
+  position: absolute !important;
+  left: 50% !important;
+  bottom: 22px !important;
+  transform: translateX(-50%) !important;
+  z-index: 10 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 8px 11px !important;
+  border-radius: 999px !important;
+  background: rgba(70, 76, 90, 0.55) !important;
+  border: 1px solid rgba(255,255,255,.34) !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,.12) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.hero.hero-full-image .hero-full-dots .hero-dot {
+  width: 9px !important;
+  height: 9px !important;
+  min-width: 9px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 50% !important;
+  background: rgba(255,255,255,.65) !important;
+  cursor: pointer !important;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+}
+
+.hero.hero-full-image .hero-full-dots .hero-dot.active {
+  width: 25px !important;
+  min-width: 25px !important;
+  border-radius: 999px !important;
+  background: #fff !important;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .hero.hero-full-image {
+    aspect-ratio: 2.65 / 1 !important;
+    border-radius: 28px !important;
+  }
+
+  .hero.hero-full-image .hero-full-content {
+    left: 5% !important;
+    width: 46% !important;
+  }
+
+  .hero.hero-full-image h1 {
+    font-size: clamp(42px, 7vw, 70px) !important;
+  }
+
+  .hero.hero-full-image .hero-shop-button {
+    min-height: 50px !important;
+    padding: 0 25px !important;
+    border-radius: 17px !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hero.hero-full-image {
+    aspect-ratio: 1.65 / 1 !important;
+    min-height: 225px !important;
+    border-radius: 20px !important;
+  }
+
+  .hero.hero-full-image .hero-full-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(16, 105, 230, 0.68) 0%,
+      rgba(23, 105, 255, 0.46) 48%,
+      rgba(0, 0, 0, 0.04) 100%
+    ) !important;
+  }
+
+  .hero.hero-full-image .hero-full-content {
+    left: 22px !important;
+    width: 56% !important;
+    max-width: none !important;
+  }
+
+  .hero.hero-full-image .hero-mini-label {
+    gap: 6px !important;
+    margin-bottom: 6px !important;
+    font-size: 11px !important;
+  }
+
+  .hero.hero-full-image .sale-label {
+    font-size: 17px !important;
+  }
+
+  .hero.hero-full-image h1 {
+    font-size: 38px !important;
+    letter-spacing: -1.5px !important;
+  }
+
+  .hero.hero-full-image .hero-full-content p {
+    margin-top: 7px !important;
+    font-size: 12px !important;
+  }
+
+  .hero.hero-full-image .hero-shop-button {
+    min-height: 38px !important;
+    margin-top: 14px !important;
+    padding: 0 16px !important;
+    gap: 7px !important;
+    border-radius: 12px !important;
+    font-size: 12px !important;
+  }
+
+  .hero.hero-full-image .hero-full-dots {
+    bottom: 9px !important;
+    gap: 6px !important;
+    padding: 6px 8px !important;
+  }
+
+  .hero.hero-full-image .hero-full-dots .hero-dot {
+    width: 7px !important;
+    height: 7px !important;
+    min-width: 7px !important;
+  }
+
+  .hero.hero-full-image .hero-full-dots .hero-dot.active {
+    width: 19px !important;
+    min-width: 19px !important;
+  }
+}
+
+
+/* =========================================================
+   SHOPVISTA HERO FINAL FIX
+   1. Remove blue color overlay from the left side completely
+   2. Keep the original image colors visible
+   3. Smooth cross-fade animation between the 3 slides
+   ========================================================= */
+
+.hero-full-image {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero-image-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.hero-full-image .hero-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.015);
+  transition:
+    opacity 1.15s ease-in-out,
+    transform 1.4s ease-in-out,
+    visibility 0s linear 1.15s;
+  will-change: opacity, transform;
+  z-index: 1;
+}
+
+.hero-full-image .hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  transition:
+    opacity 1.15s ease-in-out,
+    transform 1.4s ease-in-out,
+    visibility 0s linear 0s;
+  z-index: 2;
+}
+
+/* Completely remove the old blue/colored hero overlay. */
+.hero-full-image .hero-full-overlay,
+.hero-full-image .hero-glass-overlay {
+  background: transparent !important;
+  background-image: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Keep the text directly over the image without adding a blue tint. */
+.hero-full-image .hero-full-content {
+  z-index: 5;
+}
+
+.hero-full-image .hero-full-dots {
+  z-index: 6;
+}
+
+/* Make the transition smooth even if the browser paints the images quickly. */
+.hero-full-image .hero-slide:not(.active) {
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-full-image .hero-slide,
+  .hero-full-image .hero-slide.active {
+    transition: opacity 0.25s ease;
+    transform: none;
+  }
+}
+
+
+/* =========================================================
+   SHOPVISTA HERO — FINAL 10% BLUE TINT + REAL CROSS-FADE
+   ========================================================= */
+
+.hero.hero-full-image {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+.hero.hero-full-image .hero-image-layer {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+}
+
+/* Every slide stays in the same layer. Only opacity changes.
+   This gives a true cross-fade instead of a hard image swap. */
+.hero.hero-full-image .hero-image-layer .hero-slide {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: block !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  opacity: 0 !important;
+  visibility: visible !important;
+  transform: scale(1.025) !important;
+  transition: opacity 1.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 1.8s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+  will-change: opacity, transform !important;
+  z-index: 1 !important;
+  animation: none !important;
+}
+
+.hero.hero-full-image .hero-image-layer .hero-slide.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: scale(1) !important;
+  z-index: 2 !important;
+}
+
+/* 10% blue tint — uniform and subtle, not the old heavy left gradient. */
+.hero.hero-full-image .hero-full-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 3 !important;
+  display: block !important;
+  background: rgba(23, 105, 255, 0.10) !important;
+  opacity: 1 !important;
+  pointer-events: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Prevent the old glass overlay from adding another tint. */
+.hero.hero-full-image .hero-glass-overlay {
+  display: none !important;
+  opacity: 0 !important;
+  background: transparent !important;
+  pointer-events: none !important;
+}
+
+.hero.hero-full-image .hero-full-content {
+  position: absolute !important;
+  z-index: 5 !important;
+}
+
+.hero.hero-full-image .hero-full-dots {
+  z-index: 6 !important;
+}
+
+/* Accessibility: keep reduced-motion users on a simple fade. */
+@media (prefers-reduced-motion: reduce) {
+  .hero.hero-full-image .hero-image-layer .hero-slide,
+  .hero.hero-full-image .hero-image-layer .hero-slide.active {
+    transition: opacity 0.35s ease !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+
+
+/* =========================================================
+   SHOPVISTA — NAVBAR LOGO
+   Uses /public/images/shopvista-logo.png
+   ========================================================= */
+
+.brand-icon {
+  width: 46px !important;
+  height: 46px !important;
+  min-width: 46px !important;
+  min-height: 46px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+  overflow: hidden !important;
+
+  border-radius: 14px !important;
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #65aaff
+  ) !important;
+
+  box-shadow:
+    0 0 26px
+    rgba(50, 150, 255, 0.52) !important;
+}
+
+.brand-icon img {
+  width: 100% !important;
+  height: 100% !important;
+
+  display: block !important;
+  object-fit: contain !important;
+  object-position: center !important;
+
+  padding: 3px !important;
+  border-radius: 14px !important;
+
+  border: 0 !important;
+  outline: 0 !important;
+
+  /* If the source PNG has a black background,
+     this makes the black area visually transparent
+     while preserving the blue/white logo. */
+  mix-blend-mode: screen;
+}
+
+/* =========================================================
+   SHOPVISTA — FINAL HERO ANIMATION
+   Valid, self-contained block.
+   ========================================================= */
+
+.hero.hero-full-image {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+}
+
+.hero.hero-full-image .hero-image-layer {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  z-index: 1 !important;
+}
+
+.hero.hero-full-image .hero-image-layer .hero-slide {
+  position: absolute !important;
+  inset: 0 !important;
+
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+
+  display: block !important;
+
+  object-fit: cover !important;
+  object-position: center center !important;
+
+  opacity: 0 !important;
+  visibility: visible !important;
+
+  transform: scale(1.035) !important;
+
+  transition:
+    opacity 1.25s cubic-bezier(0.22, 0.61, 0.36, 1),
+    transform 1.60s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+
+  will-change: opacity, transform !important;
+
+  backface-visibility: hidden !important;
+  -webkit-backface-visibility: hidden !important;
+
+  filter: none !important;
+  z-index: 1 !important;
+}
+
+.hero.hero-full-image .hero-image-layer .hero-slide.active {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: scale(1) !important;
+  z-index: 2 !important;
+
+  animation:
+    shopVistaHeroFadeIn
+    1.25s
+    cubic-bezier(0.22, 0.61, 0.36, 1)
+    both !important;
+}
+
+.hero.hero-full-image .hero-image-layer .hero-slide:not(.active) {
+  pointer-events: none !important;
+}
+
+@keyframes shopVistaHeroFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.035);
+  }
+
+  45% {
+    opacity: 0.55;
+    transform: scale(1.018);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero.hero-full-image .hero-full-overlay {
+  z-index: 3 !important;
+  pointer-events: none !important;
+
+  background:
+    rgba(23, 105, 255, 0.10) !important;
+
+  opacity: 1 !important;
+
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.hero.hero-full-image .hero-full-content {
+  z-index: 5 !important;
+}
+
+.hero.hero-full-image .hero-full-dots {
+  z-index: 6 !important;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .hero.hero-full-image .hero-image-layer .hero-slide,
+  .hero.hero-full-image .hero-image-layer .hero-slide.active {
+    animation: none !important;
+    transition: opacity 0.45s ease !important;
+    transform: none !important;
+  }
+}
+
+/* Mobile logo */
+@media (max-width: 720px) {
+  .brand-icon {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    min-height: 42px !important;
+    border-radius: 13px !important;
+  }
+
+  .brand-icon img {
+    padding: 2px !important;
+    border-radius: 13px !important;
+  }
+}
+
+@media (max-width: 450px) {
+  .brand-icon {
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    border-radius: 11px !important;
+  }
+
+  .brand-icon img {
+    padding: 2px !important;
+    border-radius: 11px !important;
+  }
+}
